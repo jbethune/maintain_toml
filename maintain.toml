@@ -17,7 +17,7 @@ timekeepers = ["github:jbethune", "unix:hacker"]  # default value: []
 # URL to the bug tracker
 tracker = "https://github.com/jbethune/maintain_toml/issues"  # default: empty string
 # URL to instructions on how to responsibly disclose security issues
-responsible_disclosure "https://example.org/security.txt"  # default: empty string
+responsible_disclosure = "https://example.org/security.txt"  # default: empty string
 
 # URL to document describing how to contribute to the project
 contribute = "contribute.txt"  # default: empty string
