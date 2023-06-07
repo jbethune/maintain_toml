@@ -1,0 +1,97 @@
+# version of the maintain.toml format
+version = "0.0.1"
+
+[time]
+# The date when the file was last updated
+timestamp = 2023-06-07  # mandatory
+# The date on which this maintain.toml expires and on which the project can be considered no longer maintained
+# The difference between the `timestamp` and the `expiry` can be at most one year.
+expiry = 2024-06-07  # mandatory
+# Number of days before the expiry where reminders should be sent to the people listed in the time.timekeepers array
+reminder = 30  # default value: 30
+# Identifiers of people/users that should be automatically informed when the expiry date is less than `time.reminder`.
+# The frequency of the reminders should be configurable in the reminding software.
+timekeepers = ["github:jbethune", "unix:hacker"]  # default value: []
+
+[development]
+# URL to the bug tracker
+tracker = "https://github.com/jbethune/maintain_toml/issues"  # default: empty string
+# URL to instructions on how to responsibly disclose security issues
+responsible_disclosure "https://example.org/security.txt"  # default: empty string
+
+# URL to document describing how to contribute to the project
+contribute = "contribute.txt"  # default: empty string
+
+# Whether new features are desired in this project
+# In some cases a project might consider itself to be feature-complete to keep
+# complexity down.
+new_features = true  # default: true
+
+# The `stage` entry describes the stage of development the project is in.
+# It can be one of the following:
+# * new: The project has been recently started. This is the default
+# * prototype: The project is a proof of concept. If you find it on the
+#              internet, you should probably think twice about using it in
+#              production.
+# * alpha: The project is growing but is still missing many features
+# * beta: The project supports all important features but is rough around the edges
+# * released: The project is considered to be useable for end users.
+#             This typically means that it is uploaded to a software repository.
+#             This does NOT make any statements about potential future breaking changes.
+# * stable: The software has been released and will probably not introduce any
+#           breaking changes (barring major semantic version upgrades)
+# * battle-tested: The project has been used for a few years now and appears to
+#                  fulfill it's role well. Major changes are not expected.
+# * security-hazard: The software is in a state where it should not be
+#                    considered safe to use. The software is probably broken
+#                    beyond repair.
+# * legacy: The software is probably no longer useful to most people.
+#           It might still be relevant for legacy systems.
+#           Security issues should still be addressed.
+# * unmaintained: The software will no longer be maintained.
+#                 It is still possible to fork and revitalize it.
+stage = "new"
+
+[finance]
+# URL pointing to bug bounty program
+bug_bounty = ""  # default: empty string which means no bug bounty program
+# List of URLs pointing to funding avenues for the project.
+# If the list is empty, then the project does not want any funding.
+# Prior art: https://docs.npmjs.com/cli/v9/configuring-npm/package-json?v=true#funding
+donations = []  # default: empty
+
+# List of project developers who would like to get sponsorship contracts to work
+# on this software as a regular job
+sponsor = []  # default: empty
+
+# State of the finacial situation of the project. Can be one of
+# "well-funded", "sufficient", "underfunded", "seriously underfunded", "unsustainable"
+funds = "sufficient"  # default: sufficient
+
+# URL, e-mail address or other handle that points to ways a user of the project
+# can get paid support.
+paid_support = ""  # default: empty string for no paid support
+
+# The staff section explains where help is needed.
+# Each entry is a list of strings where each string is a project-specific
+# description of a task or area where help is needed.
+[staff]
+# Areas of the project where more code improvements are needed
+programming = []
+# Areas of the project where better documentation is needed
+documentation = []
+# Areas where more testing is needed
+testing = []
+# Areas where more (visual) design is needed
+design = []
+# Areas where more specification work needs to be done
+specification = ["maintain.toml file structure"]
+# General category to describe other areas where help is needed
+other = []
+
+[ecosystem]
+# list of URLs or names of other projects that this project can replace
+supercedes = []  # default: []
+# list of URLs or names of other project that are declared as a replacement
+# for this project.
+superceded_by = []  # default: []

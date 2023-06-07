@@ -1,0 +1,2 @@
+Use the bug tracker https://github.com/jbethune/maintain_toml/issues to participate in discussions on the maintain.toml project.
+Discussions can also be iniated from a pull request.
