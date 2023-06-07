@@ -75,5 +75,5 @@ See the [maintain.toml](maintain.toml) file of this repository for more fields, 
 
 ## Contributing/Standardization
 
-As pointed out in the entry `development.specification` in the [maintain.toml](maintain.toml),
+As pointed out in the entry `staff.specification` in the [maintain.toml](maintain.toml),
 I am happy to take suggestions on the file format. Please open an issue to discuss changes.
