@@ -71,9 +71,9 @@ show a local notification to the `hacker` user.
 
 The default value for `reminder` is 30 days. But for it to have any effect, there need to be entries in the `timekeepers` array (which is empty by default).
 
-See the [maintain.toml] file of this repository for more fields, their descriptions and default values.
+See the [maintain.toml](maintain.toml) file of this repository for more fields, their descriptions and default values.
 
 ## Contributing/Standardization
 
-As pointed out in the entry `development.specification` in the [maintain.toml],
+As pointed out in the entry `development.specification` in the [maintain.toml](maintain.toml),
 I am happy to take suggestions on the file format. Please open an issue to discuss changes.
