@@ -26,46 +26,46 @@ more effectively determine where dependencies need to be supported.
 ## The maintain.toml
 
 The maintain.toml is a simple declarative [TOML](https://toml.io/en/) file to describe the needs and state of a project.
-In its most basic form, there are only 3 required fields and the remaining entries have reasonable default values:
+In its most basic form, there are only 2 required fields and the remaining entries have reasonable default values:
 
 ```toml
-version = "0.0.1"
+version = "0.1.0"
 
 [time]
-timestamp = 2023-06-07
-expiry = 2024-06-07
+timestamp = 2023-06-15
 ```
 
 The `version` field describes the version of the `maintain.toml` standard.
 It follows [semantic versioning 2.0](https://semver.org/spec/v2.0.0.html).
 
-The `timestamp` field describes when `maintain.toml` was last updated
-using the native date format supported by TOML.
-Naturally, you could determine the same information also from the file in the git log or the local file system entry,
-but the `timestamp` field has a special relationship to the `expiry` field:
-They can be at most 1 year apart.
-The `expiry` is a future date on which the `maintain.toml` expires.
-That is, on the 7th of June 2024, the project is officially unmaintained.
+The `timestamp` field describes when `maintain.toml` was last updated using the native date format supported by TOML.
 If no time zone was specified for the TOML time, the time zone is assumed to be UTC+0.
-The `expiry` field acts as a [dead man's switch](https://en.wikipedia.org/wiki/Dead_man%27s_switch)
+Naturally, you could determine the same information also from the file in the git log or the local file system entry,
+but it's also possible to lose this information when downloading a project as a zip file from GitHub.
+
+The next field we are going to discuss is the `time.valid_for` field which has a special relationship with the `timestamp` field:
+The `maintain.txt` file will be valid until the date that you get when you calculate `timestamp` + `valid_for`.
+The default value for `valid_for` is 300 days. The maximum value is 366 days. And the minimum value is 2 days.
+
+The combination of the `timestamp` and the `valid_for` fields act as a [dead man's switch](https://en.wikipedia.org/wiki/Dead_man%27s_switch)
 and therefore the `maintain.toml` file should be updated on a regular basis.
 
 There are more fields that can be set. For example:
 
 ```toml
-version = "0.0.1"
+version = "0.1.0"
 
 [time]
-timestamp = 2023-06-07
-expiry = 2024-06-07
+timestamp = 2023-06-15
+valid_for = 100
 reminder = 30
-timekeepers = ["github:jbethune", "unix:hacker"]
+timekeepers = ["github:jbethune", "local:hacker"]
 ```
 
-The `reminder` field indicates how many days before the `expiry` you want to receive notifications about the upcoming expiry.
+The `reminder` field indicates how many days before the expiry of the `maintain.toml` you want to receive notifications about the upcoming expiry.
 These notifications can be implemented by GitHub and other services.
 GitHub would notice that there is an entry `github:jbethune` in the list of `timekeepers` and show a notification to me the next time I log on to GitHub.
-At the same time, GitHub would ignore the `unix:hacker` entry,
+At the same time, GitHub would ignore the `local:hacker` entry,
 but a tool  that I run on my local linux machine could pick the entry up and
 show a local notification to the `hacker` user.
 

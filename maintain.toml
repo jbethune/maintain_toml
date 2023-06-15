@@ -1,12 +1,13 @@
 # version of the maintain.toml format
-version = "0.0.1"
+version = "0.1.0"
 
 [time]
 # The date when the file was last updated
-timestamp = 2023-06-07  # mandatory
-# The date on which this maintain.toml expires and on which the project can be considered no longer maintained
-# The difference between the `timestamp` and the `expiry` can be at most one year.
-expiry = 2024-06-07  # mandatory
+timestamp = 2023-06-15  # mandatory
+# The number of days after the timestamp after which this maintain.toml expires
+# and on which the project can be considered no longer maintained.
+# Minimum value: 2, maximum value: 366
+expiry = 100  # default: 300
 # Number of days before the expiry where reminders should be sent to the people listed in the time.timekeepers array
 reminder = 30  # default value: 30
 # Identifiers of people/users that should be automatically informed when the expiry date is less than `time.reminder`.
