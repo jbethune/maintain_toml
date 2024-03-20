@@ -3,7 +3,7 @@ version = "0.2.0"
 
 [time]
 # The date when the file was last updated
-timestamp = 2024-02-01  # mandatory
+timestamp = 2024-03-20  # mandatory
 # The number of days after the timestamp after which this maintain.toml expires
 # and on which the project can be considered no longer maintained.
 # Minimum value: 2, maximum value: 366
